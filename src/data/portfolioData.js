@@ -8,7 +8,7 @@ export const portfolioData = {
     email: "am6470224@gmail.com",
     phone: "03089368917",
     github: "https://github.com/Ali18-code",
-    linkedin: "https://www.linkedin.com/in/ali-muhammad-17625a335",
+    linkedin: "https://www.linkedin.com/in/alimuhammadpanhwar",
     resumeUrl: "#", // Add your PDF path in public/ or Google Drive link here
     hasResume: false, // Set to true when ready to link your PDF resume
     headline: "From Code to Intelligent Systems",
