@@ -93,23 +93,6 @@ export const portfolioData = {
       status: "Live Demo Available"
     },
     {
-      id: "smart-clinic-system",
-      title: "Smart Clinic Management System",
-      category: "Systems & DSA",
-      badge: "Core Engineering Proof",
-      description: "A comprehensive medical clinic management system built with robust object-oriented architecture, data structures, and database integration.",
-      architecture: [
-        "Data Structures: Utilized custom linked structures and hash indexing for fast patient record retrieval",
-        "Backend Logic: Core logic implemented in C++ emphasizing memory management and execution speed",
-        "Interactive GUI: Java desktop interface providing intuitive doctor scheduling and patient appointment queues",
-        "Data Persistence: SQL relational database with structured foreign key schemas for doctors, patients, and billing"
-      ],
-      tags: ["C++", "DSA", "Java GUI", "SQL", "Object-Oriented Design"],
-      github: "https://github.com/Ali18-code/Smart-Clinic-Management-system",
-      demo: null,
-      status: "Completed"
-    },
-    {
       id: "mnist-digit-recognition",
       title: "Interactive MNIST Digit Recognizer",
       category: "Computer Vision / ML",
@@ -125,23 +108,6 @@ export const portfolioData = {
       github: "https://github.com/Ali18-code/Mnist-digit-recognition",
       demo: null, // We will add the live link once it's deployed to HuggingFace Spaces or Streamlit Cloud
       status: "Live Demo Available"
-    },
-    {
-      id: "crime-fir-system",
-      title: "Crime & FIR Management System",
-      category: "Full-Stack Enterprise",
-      badge: "Systems Architecture",
-      description: "A web-based digital First Information Report (FIR) and criminal case tracking portal built to streamline law enforcement record keeping.",
-      architecture: [
-        "Full-Stack Architecture: Built with C# and Blazor WebAssembly for reactive client-side performance",
-        "Role-Based Access: Citizen FIR filing, investigator case assignment, and supervisor status audit",
-        "Database Layer: Relational schema handling case evidence, officer logs, and status timelines",
-        "UI/UX: Clean responsive dashboards styled with HTML, CSS, and modern web components"
-      ],
-      tags: ["C#", "Blazor", "SQL", "HTML/CSS", "Full-Stack"],
-      github: "https://github.com/Ali18-code",
-      demo: null,
-      status: "Completed"
     },
     {
       id: "flagship-agent-ai",
