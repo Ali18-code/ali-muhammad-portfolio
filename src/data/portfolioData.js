@@ -153,6 +153,16 @@ export const portfolioData = {
 
   certifications: [
     {
+      title: "Google AI Essentials",
+      issuer: "Google via Coursera",
+      date: "September 2026",
+      credentialId: "T4SQX637Q6RK",
+      verifyUrl: "https://coursera.org/verify/specialization/T4SQX637Q6RK",
+      image: "/certificates/google_ai_essentials.png",
+      badge: "Google Certified",
+      desc: "Completed five courses developed by Google, featuring hands-on practice designed to build AI skills and competent use of AI tools to improve productivity."
+    },
+    {
       title: "Mastering Claude Code: From Setup to Real Projects",
       issuer: "SkillsBooster Academy via Coursera",
       date: "August 2026",
