@@ -1,8 +1,39 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { portfolioData } from '../data/portfolioData';
-import { Github, Linkedin, Mail, Code2, Cpu } from 'lucide-react';
+import { Github, Linkedin, Code2, Cpu } from 'lucide-react';
 import Tilt from 'react-parallax-tilt';
 
+/**
+ * StatCard Component
+ * Displays a single statistic or proof point in the hero section.
+ *
+ * @param {Object} props - Component props
+ * @param {Object} props.stat - Stat object containing label and value
+ * @returns {React.ReactElement}
+ */
+const StatCard = ({ stat }) => (
+  <div className="p-3.5 rounded-lg border border-slate-800/90 bg-slate-900/50 backdrop-blur-sm">
+    <div className="text-[11px] font-mono text-slate-500 uppercase tracking-wider">{stat.label}</div>
+    <div className="text-xs sm:text-sm font-semibold text-slate-200 mt-0.5">{stat.value}</div>
+  </div>
+);
+
+StatCard.propTypes = {
+  stat: PropTypes.shape({
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+  }).isRequired,
+};
+
+/**
+ * Hero Section Component
+ * The main landing view of the portfolio.
+ *
+ * @param {Object} props - Component props
+ * @param {Function} [props.onResumeClick] - Optional callback for resume click
+ * @returns {React.ReactElement}
+ */
 export default function Hero({ onResumeClick }) {
   const { personal, stats } = portfolioData;
 
@@ -28,7 +59,7 @@ export default function Hero({ onResumeClick }) {
 
             <div className="flex flex-wrap items-center gap-3 text-lg sm:text-xl text-slate-300 font-medium mb-6">
               <span className="text-indigo-400 font-mono flex items-center gap-1.5">
-                <Cpu size={18} />
+                <Cpu size={18} aria-hidden="true" />
                 {personal.title}
               </span>
               <span className="text-slate-600">•</span>
@@ -43,10 +74,7 @@ export default function Hero({ onResumeClick }) {
             {/* Key Verification Proof Points */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mb-10">
               {stats.map((stat, i) => (
-                <div key={i} className="p-3.5 rounded-lg border border-slate-800/90 bg-slate-900/50 backdrop-blur-sm">
-                  <div className="text-[11px] font-mono text-slate-500 uppercase tracking-wider">{stat.label}</div>
-                  <div className="text-xs sm:text-sm font-semibold text-slate-200 mt-0.5">{stat.value}</div>
-                </div>
+                <StatCard key={i} stat={stat} />
               ))}
             </div>
 
@@ -56,7 +84,7 @@ export default function Hero({ onResumeClick }) {
                 href="#projects"
                 className="px-5 py-2.5 rounded-md bg-indigo-600 hover:bg-indigo-500 text-white font-semibold text-xs sm:text-sm transition-all shadow-[0_0_20px_rgba(99,102,241,0.3)] flex items-center gap-2"
               >
-                <Code2 size={16} />
+                <Code2 size={16} aria-hidden="true" />
                 Explore Projects
               </a>
 
@@ -66,7 +94,7 @@ export default function Hero({ onResumeClick }) {
                 rel="noreferrer"
                 className="px-5 py-2.5 rounded-md border border-slate-700/80 hover:border-slate-500 bg-slate-900/60 hover:bg-slate-800/60 text-slate-300 hover:text-white font-mono text-xs sm:text-sm transition-all flex items-center gap-2"
               >
-                <Github size={16} />
+                <Github size={16} aria-hidden="true" />
                 GitHub Profile
               </a>
 
@@ -76,7 +104,7 @@ export default function Hero({ onResumeClick }) {
                 rel="noreferrer"
                 className="px-5 py-2.5 rounded-md border border-slate-700/80 hover:border-slate-500 bg-slate-900/60 hover:bg-slate-800/60 text-slate-300 hover:text-white font-mono text-xs sm:text-sm transition-all flex items-center gap-2"
               >
-                <Linkedin size={16} />
+                <Linkedin size={16} aria-hidden="true" />
                 LinkedIn
               </a>
             </div>
