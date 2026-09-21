@@ -1,7 +1,45 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 import { portfolioData } from '../data/portfolioData';
 import { Mail, Github, Linkedin, Copy, Check, Send, Phone } from 'lucide-react';
 
+/**
+ * SocialLink Component
+ * Renders an external social profile link.
+ *
+ * @param {Object} props - Component props
+ * @param {string} props.href - The destination URL
+ * @param {React.ReactNode} props.icon - The Lucide icon component
+ * @param {string} props.text - The link text
+ * @returns {React.ReactElement}
+ */
+const SocialLink = ({ href, icon, text }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noreferrer"
+    className="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 hover:border-indigo-500/40 text-slate-300 hover:text-white transition-all text-xs font-mono group"
+  >
+    <span className="flex items-center gap-2">
+      {icon}
+      {text}
+    </span>
+    <span className="text-slate-500 group-hover:text-indigo-400 transition-colors" aria-hidden="true">↗</span>
+  </a>
+);
+
+SocialLink.propTypes = {
+  href: PropTypes.string.isRequired,
+  icon: PropTypes.node.isRequired,
+  text: PropTypes.string.isRequired,
+};
+
+/**
+ * Contact Section Component
+ * Displays direct contact information and a messaging form.
+ *
+ * @returns {React.ReactElement}
+ */
 export default function Contact() {
   const { personal } = portfolioData;
   const [copied, setCopied] = useState(false);
@@ -40,7 +78,7 @@ export default function Contact() {
         {/* Section Header */}
         <div className="mb-12">
           <div className="flex items-center gap-2 text-indigo-400 font-mono text-xs uppercase tracking-widest mb-2">
-            <Mail size={14} />
+            <Mail size={14} aria-hidden="true" />
             Get in Touch
           </div>
           <h2 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
@@ -67,7 +105,7 @@ export default function Contact() {
                   onClick={handleCopyEmail}
                   className="w-full py-2 px-3 rounded-md bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-xs font-mono flex items-center justify-center gap-1.5 transition-all"
                 >
-                  {copied ? <Check size={13} className="text-emerald-400" /> : <Copy size={13} />}
+                  {copied ? <Check size={13} className="text-emerald-400" aria-hidden="true" /> : <Copy size={13} aria-hidden="true" />}
                   {copied ? 'Copied to Clipboard!' : 'Copy Email Address'}
                 </button>
               </div>
@@ -76,14 +114,14 @@ export default function Contact() {
                 <div className="pt-4 border-t border-slate-800/50">
                   <div className="text-xs font-mono text-slate-400 mb-1">Phone / WhatsApp</div>
                   <div className="text-sm font-semibold text-white mb-2 font-mono flex items-center gap-2">
-                    <Phone size={14} className="text-indigo-400" />
+                    <Phone size={14} className="text-indigo-400" aria-hidden="true" />
                     {personal.phone}
                   </div>
                   <button
                     onClick={handleCopyPhone}
                     className="w-full py-2 px-3 rounded-md bg-indigo-500/10 hover:bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 text-xs font-mono flex items-center justify-center gap-1.5 transition-all"
                   >
-                    {copiedPhone ? <Check size={13} className="text-emerald-400" /> : <Copy size={13} />}
+                    {copiedPhone ? <Check size={13} className="text-emerald-400" aria-hidden="true" /> : <Copy size={13} aria-hidden="true" />}
                     {copiedPhone ? 'Copied to Clipboard!' : 'Copy Phone Number'}
                   </button>
                 </div>
@@ -94,31 +132,17 @@ export default function Contact() {
             <div className="p-5 rounded-xl border border-slate-800/90 bg-slate-900/40 space-y-3">
               <div className="text-xs font-mono text-slate-400 mb-2">Profiles & Repositories</div>
               
-              <a
+              <SocialLink
                 href={personal.github}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 hover:border-indigo-500/40 text-slate-300 hover:text-white transition-all text-xs font-mono group"
-              >
-                <span className="flex items-center gap-2">
-                  <Github size={15} className="text-indigo-400" />
-                  github.com/Ali18-code
-                </span>
-                <span className="text-slate-500 group-hover:text-indigo-400 transition-colors">↗</span>
-              </a>
+                icon={<Github size={15} className="text-indigo-400" aria-hidden="true" />}
+                text="github.com/Ali18-code"
+              />
 
-              <a
+              <SocialLink
                 href={personal.linkedin}
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800 hover:border-indigo-500/40 text-slate-300 hover:text-white transition-all text-xs font-mono group"
-              >
-                <span className="flex items-center gap-2">
-                  <Linkedin size={15} className="text-indigo-400" />
-                  linkedin.com/in/ali-muhammad-17625a335
-                </span>
-                <span className="text-slate-500 group-hover:text-indigo-400 transition-colors">↗</span>
-              </a>
+                icon={<Linkedin size={15} className="text-indigo-400" aria-hidden="true" />}
+                text="linkedin.com/in/alimuhammadpanhwar"
+              />
             </div>
 
             <div className="p-4 rounded-xl border border-emerald-500/20 bg-emerald-500/5 text-xs text-emerald-300 flex items-start gap-2.5">
@@ -183,12 +207,12 @@ export default function Contact() {
               >
                 {formSubmitted ? (
                   <>
-                    <Check size={16} />
+                    <Check size={16} aria-hidden="true" />
                     Message Dispatched!
                   </>
                 ) : (
                   <>
-                    <Send size={15} />
+                    <Send size={15} aria-hidden="true" />
                     Send Inquiry
                   </>
                 )}
